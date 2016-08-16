@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		 <script src="./lib/echarts-all-3.js"></script>
+        <script src="./lib/dataTool.min.js"></script>
+        <script src="./lib/china.js"></script>
+        <script src="./lib/world.js"></script>
+        <script src="./lib/bmap.min.js"></script>
+
+		<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts-all-3.js"></script>
+		<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+		<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+		<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>
+		<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+
+	</head>
+
+	<body style=" margin: 0">
+		<div id="main" style="width:100%; height: 400px !important">
+
+		</div>
+	</body>
+
+	<script type="text/javascript">
+		var dom = document.getElementById("main");
+		var myChart = echarts.init(dom);
+		var topip=[
+			"西北西南大区：900<br/>蒙西、宁夏分区：200<br/>陕西分区：300<br/>川渝分区：50<br/>甘青藏缃分区：250<br/>云贵分区：100",
+			"东北大区: 100<br/>辽宁、吉林、黑龙江",
+			"华北大区: 300<br/>内蒙古、山西<br/>河北、北京、天津", 
+			"华南大区: 500<br/>河南、湖北<br/>湖南、江西<br/>广西、广东、海南", 
+			"华东大区: 700<br/>山东、安微<br/>江苏、浙江<br/>福建、台湾"
+			];
+
+		var dataSouse = {
+			
+			title: "宝沃销售热力图（数据随机生成）",
+			data: ["东北大区: 100", "华北大区: 300", "华南大区: 500", "华东大区: 700", "西北西南大区: 900"],
+			series: {
+				data: [{
+					name: "辽宁",
+					seriesName:topip[1],
+					itemStyle: {
+						normal: {
+							color: '#ED8879'
+						}
+					}
+				}, {
+					name: "黑龙江",
+					seriesName:topip[1],
+					itemStyle: {
+						normal: {
+							color: '#ED8879'
+						}
+					}
+				}, {
+					name: "吉林",
+					seriesName:topip[1],
+					itemStyle: {
+						normal: {
+							color: '#ED8879'
+						}
+					}
+				}, {
+					name: "北京",
+					seriesName:topip[2],
+					itemStyle: {
+						normal: {
+							color: '#C13737'
+						}
+					}
+				}, {
+					name: "天津",
+					seriesName:topip[2],
+					itemStyle: {
+						normal: {
+							color: '#C13737'
+						}
+					}
+				}, {
+					name: "内蒙古",
+					seriesName:topip[2],
+					itemStyle: {
+						normal: {
+							color: '#C13737'
+						}
+					}
+				}, {
+					name: "河北",
+					seriesName:topip[2],
+					itemStyle: {
+						normal: {
+							color: '#C13737'
+						}
+					}
+				}, {
+					name: "山西",
+					seriesName:topip[2],
+					itemStyle: {
+						normal: {
+							color: '#C13737'
+						}
+					}
+				}, {
+					itemStyle: {
+						normal: {
+							color: '#2F5263'
+						}
+					},
+					seriesName:topip[3],
+					name: "河南"
+				}, {
+					itemStyle: {
+						normal: {
+							color: '#2F5263'
+						}
+					},
+					seriesName:topip[3],
+					name: "江西"
+				}, {
+					itemStyle: {
+						normal: {
+							color: '#2F5263'
+						}
+					},
+					seriesName:topip[3],
+					name: "湖北"
+				}, {
+					itemStyle: {
+						normal: {
+							color: '#2F5263'
+						}
+					},
+					seriesName:topip[3],
+					name: "湖南"
+				}, {
+					itemStyle: {
+						normal: {
+							color: '#2F5263'
+						}
+					},
+					seriesName:topip[3],
+					name: "海南"
+				}, {
+					itemStyle: {
+						normal: {
+							color: '#2F5263'
+						}
+					},
+					seriesName:topip[3],
+					name: "广东"
+				}, {
+					itemStyle: {
+						normal: {
+							color: '#2F5263'
+						}
+					},
+					seriesName:topip[3],
+					name: "广西"
+				}, {
+					itemStyle: {
+						normal: {
+							color: '#2F5263'
+						}
+					},
+					seriesName:topip[3],
+					name: "香港"
+				}, {
+					itemStyle: {
+						normal: {
+							color: '#2F5263'
+						}
+					},
+					seriesName:topip[3],
+					name: "澳门"
+				}, {
+					itemStyle: {
+						normal: {
+							color: '#72CDCD'
+						}
+					},
+					seriesName:topip[4],
+					name: "山东"
+				}, {
+					itemStyle: {
+						normal: {
+							color: '#72CDCD'
+						}
+					},
+					seriesName:topip[4],
+					name: "江苏"
+				}, {
+					itemStyle: {
+						normal: {
+							color: '#72CDCD'
+						}
+					},
+					seriesName:topip[4],
+					name: "浙江"
+				}, {
+					itemStyle: {
+						normal: {
+							color: '#72CDCD'
+						}
+					},
+					seriesName:topip[4],
+					name: "福建"
+				}, {
+					itemStyle: {
+						normal: {
+							color: '#72CDCD'
+						}
+					},
+					seriesName:topip[4],
+					name: "上海"
+				}, {
+					itemStyle: {
+						normal: {
+							color: '#72CDCD'
+						}
+					},
+					seriesName:topip[4],
+					name: "安徽"
+				}, {
+					itemStyle: {
+						normal: {
+							color: '#72CDCD'
+						}
+					},
+					seriesName:topip[4],
+					name: "台湾"
+				}, {
+					itemStyle: {
+						normal: {
+							color: '#AFE0C3'
+						}
+					},
+					seriesName:topip[0],
+					name: "青海"
+				}, {
+					seriesName:topip[0],
+					itemStyle: {
+						normal: {
+							color: '#AFE0C3'
+						}
+					},
+					name: "西藏"
+				}, {
+					itemStyle: {
+						normal: {
+							color: '#AFE0C3'
+						}
+					},
+					seriesName:topip[0],
+					name: "四川"
+				}, {
+					itemStyle: {
+						normal: {
+							color: '#AFE0C3'
+						}
+					},
+					seriesName:topip[0],
+					name: "宁夏"
+				}, {
+					itemStyle: {
+						normal: {
+							color: '#AFE0C3'
+						}
+					},
+					seriesName:topip[0],
+					name: "新疆"
+				}, {
+					itemStyle: {
+						normal: {
+							color: '#AFE0C3'
+						}
+					},
+					name: "甘肃"
+				}, {
+					itemStyle: {
+						normal: {
+							color: '#AFE0C3'
+						}
+					},
+					seriesName:topip[0],
+					name: "陕西"
+				}, {
+					itemStyle: {
+						normal: {
+							color: '#AFE0C3'
+						}
+					},
+					seriesName:topip[0],
+					name: "贵州"
+				}, {
+					itemStyle: {
+						normal: {
+							color: '#AFE0C3'
+						}
+					},
+					seriesName:topip[0],
+					name: "重庆"
+				}, {
+					itemStyle: {
+						normal: {
+							color: '#AFE0C3'
+						}
+					},
+					seriesName:topip[0],
+					name: "云南"
+				}, {
+					itemStyle: {
+						normal: {
+							color: '#dddddd'
+						}
+					},
+					name: "南海诸岛"
+				}]
+			}
+
+		};
+
+		var option = {
+			title: {
+				text: dataSouse.title,
+				x: "center",
+				textStyle: {
+					color: "#333",
+					fontSize: 15,
+					fontStyle: "normal",
+					fontWeight: "normal"
+				}
+			},
+			tooltip: {
+
+				formatter: function(params, ticket, callback) {
+					var data = params.data.seriesName;
+					return data;
+				}
+			},
+			legend: {
+				orient: "vertical",
+				x: "left",
+				data: dataSouse.data,
+				selectedMode: false,
+				y: "bottom"
+			},
+			showLegendSymbol: false,
+			zoom: 1.2,
+			scaleLimit: {
+				min: 1.2,
+				max: 1.2
+			},
+
+			series: [{
+				name: dataSouse.series.name,
+				type: "map",
+				mapType: "china",
+				data: dataSouse.series.data
+			}, {
+				name: dataSouse.data[0],
+				type: "map",
+				mapType: "china",
+			}, {
+				name: dataSouse.data[1],
+				type: "map",
+				mapType: "china",
+			}, {
+				type: "map",
+				name: dataSouse.data[2],
+				mapType: "china",
+			}, {
+				type: "map",
+				name: dataSouse.data[3],
+				mapType: "china",
+			}, {
+				name: dataSouse.data[4],
+				type: "map",
+				mapType: "china",
+			}],
+			color: ['#000', '#ED8879', '#C13737', '#2F5263', '#72CDCD', '#AFE0C3']
+		};
+
+		if(option && typeof option === "object") {
+			myChart.setOption(option, true);
+		}
+	</script>
+
+</html>
